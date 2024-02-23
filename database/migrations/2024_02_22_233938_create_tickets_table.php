@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->enum('difficulty_level', ['easy', 'medium', 'hard'])->default('easy');
             $table->string('gif_url');
+            $table->boolean('is_done')->default(false);
             $table->timestamps();
         });
     }
