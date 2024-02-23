@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateTicketRequest;
 use App\Http\Resources\TicketCollection;
 use App\Filters\TicketFilter;
 use App\Http\Resources\TicketResource;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -64,7 +65,12 @@ class TicketController extends Controller
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        //
+        try {
+            $ticket->update($request->all());
+            return response()->json(['message' => 'Ticket actualizado con éxito'], 200);
+        } catch (QueryException $e) {
+            return response()->json(['error' => 'Error al actualizar el ticket', 'details' => $e->getMessage()], 500);
+        }
     }
 
     /**
