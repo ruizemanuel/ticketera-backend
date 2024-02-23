@@ -6,17 +6,22 @@ use App\Models\Ticket;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
 use App\Http\Resources\TicketCollection;
+use App\Filters\TicketFilter;
+use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $tickets = Ticket::all();
-        return new TicketCollection($tickets);
+        $filter = new TicketFilter();
+        $queryItems = $filter->transform($request);
+
+        $tickets = Ticket::where($queryItems);
+        return new TicketCollection($tickets->paginate()->appends($request->query()));
     }
 
     /**
