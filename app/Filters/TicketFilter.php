@@ -9,7 +9,7 @@ class TicketFilter extends ApiFilter {
     protected $safeParams = [
         'isDone' => ['eq'],
         'difficultyLevel' => ['eq'],
-        'createdAt' => ['eq','gt','lt'],
+        'createdAt' => ['eq','gte','lte'],
 
     ];
     protected $columnMap = [

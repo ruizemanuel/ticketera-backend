@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreTicketRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreTicketRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +24,19 @@ class StoreTicketRequest extends FormRequest
     {
         return [
             //
+            'title' => ['required'],
+            'description' => ['required'],
+            'difficultyLevel' => ['required', Rule::in(['easy','medium','hard'])],
+            'gifUrl' => ['required', 'url'],
+            'isDone' => ['required', 'boolean'],
         ];
     }
+    protected function prepareForValidation(){
+        $this->merge([
+            'difficulty_level' => $this->difficultyLevel,
+            'gif_url' => $this->gifUrl,
+            'is_done' => $this->isDone
+        ]);
+    }
+
 }

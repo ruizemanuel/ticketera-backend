@@ -10,6 +10,10 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = [
-        
+        'title',
+        'description',
+        'difficulty_level',
+        'gif_url',
+        'is_done'
     ];
 } 

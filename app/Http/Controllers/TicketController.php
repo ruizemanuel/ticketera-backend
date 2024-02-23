@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
 use App\Http\Resources\TicketCollection;
 use App\Filters\TicketFilter;
+use App\Http\Resources\TicketResource;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -38,6 +39,7 @@ class TicketController extends Controller
     public function store(StoreTicketRequest $request)
     {
         //
+        return new TicketResource(Ticket::create($request->all()));
     }
 
     /**
@@ -46,6 +48,7 @@ class TicketController extends Controller
     public function show(Ticket $ticket)
     {
         //
+        return new TicketResource($ticket);
     }
 
     /**
