@@ -21,6 +21,7 @@ class TicketResource extends JsonResource
             'difficultyLevel' => $this->difficulty_level,
             'gifUrl' => $this->gif_url,
             'isDone' => $this->is_done,
+            'createdAt' => $this->created_at
         ];
     }
 }
