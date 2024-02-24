@@ -19,7 +19,7 @@ class TicketFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'difficulty_level' => $this->faker->randomElement(['easy', 'medium', 'hard']),
+            'difficulty_level' => $this->faker->randomElement(['facil', 'media', 'dificil']),
             'gif_url' => $this->faker->imageUrl(),
             'is_done' => $this->faker->boolean,
             'created_at' => now(),

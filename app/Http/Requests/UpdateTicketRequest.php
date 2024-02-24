@@ -28,7 +28,7 @@ class UpdateTicketRequest extends FormRequest
             return [
                 'title' => ['required'],
                 'description' => ['required'],
-                'difficultyLevel' => ['required', Rule::in(['easy','medium','hard'])],
+                'difficultyLevel' => ['required', Rule::in(['facil','media','dificil'])],
                 'gifUrl' => ['required', 'url'],
                 'isDone' => ['required', 'boolean'],
             ];
