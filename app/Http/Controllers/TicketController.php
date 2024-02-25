@@ -39,8 +39,12 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        //
-        return new TicketResource(Ticket::create($request->all()));
+        try {
+            $ticket = Ticket::create($request->all());
+            return response()->json(['message' => 'Ticket creado con éxito', 'data' => new TicketResource($ticket)], 201);
+        } catch (QueryException $e) {
+            return response()->json(['error' => 'Error al crear el ticket', 'details' => $e->getMessage()], 500);
+        }
     }
 
     /**
