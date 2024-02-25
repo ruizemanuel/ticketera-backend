@@ -1,6 +1,6 @@
 # Backend de Ticketera App
 
-Este proyecto es el backend desarrollado en Laravel 10 para complementar el proyecto de Ticketera. Aquí encontrarás información sobre las principales características del backend, cómo instalarlo, ejecutarlo y la configuración necesaria.
+Esta es una aplicación web full-stack construida con React 18, Laravel 10 y MySQL como base de datos. La aplicación permite gestionar tickets, visualizarlos, crear nuevos, modificarlos y asignar un gif de GIPHY acorde al nivel de dificultad del ticket. Además, incluye funcionalidades de filtrado por fecha, estado y dificultad para facilitar la organización de los tickets.
 
 URL del proyecto: https://ticketera-emanuelruiz.netlify.app/
 
