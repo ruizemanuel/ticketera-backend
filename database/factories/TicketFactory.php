@@ -16,9 +16,16 @@ class TicketFactory extends Factory
      */
     public function definition(): array
     {
+
+        $title = $this->faker->sentence;
+        $description = $this->faker->paragraph;
+
+        $title = substr($title, 0, 50);
+        $description = substr($description, 0, 200);
+
         return [
-            'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraph,
+            'title' => $title,
+            'description' => $description,
             'difficulty_level' => $this->faker->randomElement(['facil', 'media', 'dificil']),
             'gif_url' => $this->faker->imageUrl(),
             'is_done' => $this->faker->boolean,
