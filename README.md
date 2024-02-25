@@ -3,6 +3,7 @@
 Este proyecto es el backend desarrollado en Laravel 10 para complementar el proyecto de Ticketera. Aquí encontrarás información sobre las principales características del backend, cómo instalarlo, ejecutarlo y la configuración necesaria.
 
 URL del proyecto: https://ticketera-emanuelruiz.netlify.app/
+
 URL del repositorio del frontend: https://github.com/ruizemanuel/ticketera-frontend
 
 ## Características
